@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Friend Finder dating app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nverges/FriendFinder.git"
+  },
+  "author": "Nick Verges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nverges/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/nverges/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "path": "^0.12.7"
+  }
+}
