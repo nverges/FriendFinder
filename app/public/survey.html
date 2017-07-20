@@ -203,7 +203,7 @@
 		// Console.logs the new friend information
 		console.log(newFriend);
 		// return false; 
-		// ^^^^^^ what does this
+		// ^^^^^^ what does this do?
 
 		// Grabs the current window URL. Will be used to concatenate the rest of the route for api post
 		var currentURL = window.location.origin;
@@ -211,6 +211,7 @@
 		// Adds new Friend to API
 		$.post(currentURL + "/api/friends", newFriend, function(friend) {
 
+			// checks if data was added
 			if (friend == true) {
 
 				// alerts
@@ -218,7 +219,7 @@
 				alert("Successfully added friend to database!");
 
 
-				// Clears the input fields
+				// Clears survey input fields
 				$('#name').val('');
 				$('#photo').val('');
 				// need to add all the score boxes. How to reset dropdown values...?
@@ -252,8 +253,8 @@
 
 				// logs out each friend in the database
 				for (let i = 0; i < friendData.length; i++) {
-					console.log(friendData[i])
-				}
+					console.log(friendData[i]);
+				};
 
 			});
 	};
