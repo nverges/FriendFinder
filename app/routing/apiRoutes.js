@@ -1,12 +1,13 @@
 // Require 'path'
 var path = require('path');
 
-// Require data
+// import data
 var friendsData = require('../data/friends.js');
 
+// exports api routes
 module.exports = function(app) {
 	
-	// (GET) function. 
+	// (GET) route
 	// Whenever you go to this url...
 	app.get("/api/:friends?", function(req, res) {
 
@@ -14,5 +15,19 @@ module.exports = function(app) {
 	        res.json(friendsData);
 
 	});
+
+	// (POST) route
+	app.post("/api/:friends?", function (req,res) {
+
+		// validate to see that all fields are filled in 
+
+		// if no, alert the user to answer all the questions first
+
+		// if yes, push to survey answers
+
+
+
+
+	})
 
 };

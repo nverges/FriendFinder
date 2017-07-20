@@ -33,14 +33,40 @@
 	</div>
 
 
-	<!-- On click -->
-	<script type="text/javascript">
-		$("#surveyBtn").on("click", function() {
+
+<script type="text/javascript">
 
 
+		// $("#surveyBtn").on("click", function() {
 
-		});
-	</script>
+		// });
+
+		// 
+		function parseData() {
+			var currentURL = window.location.origin;
+
+			$.ajax( {url: currentURL + "/api/friends/", method: "GET"} )
+		
+				.done(function(friendData) {
+					console.log('--------------------');
+					console.log('Friend Data');
+					console.log(`URL: ${currentURL}/api/friends`);
+					console.log(friendData);
+					console.log('--------------------');
+
+
+				for (let i = 0; i < friendData.length; i++) {
+					console.log(friendData[i])
+				}
+
+				});
+		};
+		
+		parseData();
+
+
+</script>
+
 
 </body>
 
