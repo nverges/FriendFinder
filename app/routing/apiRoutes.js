@@ -17,7 +17,7 @@ module.exports = function(app) {
 	});
 
 	// (POST) route
-	app.post("/api/:friends?", function (req,res) {
+	app.post("/api/friends", function(req, res) {
 
 		// validate to see that all fields are filled in 
 
@@ -25,9 +25,9 @@ module.exports = function(app) {
 
 		// if yes, push to survey answers
 
+		friendsData.push(req.body);
+		res.json(true);
 
-
-
-	})
+	});
 
 };

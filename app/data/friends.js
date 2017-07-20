@@ -15,6 +15,22 @@ var friendsArray = [
 		4,
 		1
 		]
+	},
+	{
+		"name": "John Snow",
+		"photo": "dummy data",
+		"scores": [
+		5,
+		5,
+		5,
+		5,
+		5,
+		5,
+		5,
+		5,
+		5,
+		5,
+		]
 	}
 ];
 

@@ -192,14 +192,57 @@
 	// "submit" on click event
 	$("#submit").on("click", function() {
 
+		// Creates a new Friend with the input information
+		var newFriend = {
+			name: $('#name').val().trim(),
+			photo: $('#photo').val().trim(),
+			scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+			// ^^^^^ side note - has to be a better wau to do this. How to choose class 'chosen-select' instead of writing every id?
+		};
+
+		// Console.logs the new friend information
+		console.log(newFriend);
+		// return false; 
+		// ^^^^^^ what does this
+
+		// Grabs the current window URL. Will be used to concatenate the rest of the route for api post
+		var currentURL = window.location.origin;
+
+		// Adds new Friend to API
+		$.post(currentURL + "/api/friends", newFriend, function(friend) {
+
+			if (friend == true) {
+
+				// alerts
+				console.log("FRIEND ADDED: " + newFriend.name);
+				alert("Successfully added friend to database!");
+
+
+				// Clears the input fields
+				$('#name').val('');
+				$('#photo').val('');
+				// need to add all the score boxes. How to reset dropdown values...?
+			};
+
+			if (friend == false) {
+				alert("Sorry, something went wrong and this friend was not added to the database :(")
+			};
+
+		});
+
+		return false;
+
 	});
 
 	// grabs data from friends array
 	function parseData() {
+
+		// Current window URL
 		var currentURL = window.location.origin;
 
+		// ajax call to get friends data
 		$.ajax( {url: currentURL + "/api/friends/", method: "GET"} )
-	
+
 			.done(function(friendData) {
 				console.log('--------------------');
 				console.log('Friend Data');
@@ -207,10 +250,10 @@
 				console.log(friendData);
 				console.log('--------------------');
 
-
-			for (let i = 0; i < friendData.length; i++) {
-				console.log(friendData[i])
-			}
+				// logs out each friend in the database
+				for (let i = 0; i < friendData.length; i++) {
+					console.log(friendData[i])
+				}
 
 			});
 	};
