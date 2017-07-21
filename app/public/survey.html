@@ -104,7 +104,6 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
 
-
 		<h3><strong>Question 7</strong></h3>
 		<h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q7">
@@ -196,12 +195,13 @@
 		var newFriend = {
 			name: $('#name').val().trim(),
 			photo: $('#photo').val().trim(),
-			scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
-			// ^^^^^ side note - has to be a better wau to do this. How to choose class 'chosen-select' instead of writing every id?
+			scores: [ $("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+			// ^^^^^ put in for loop?
 		};
 
 		// Console.logs the new friend information
 		console.log(newFriend);
+
 		// return false; 
 		// ^^^^^^ what does this do?
 
@@ -212,10 +212,10 @@
 		$.post(currentURL + "/api/friends", newFriend, function(friend) {
 
 			// checks if data was added
-			if (friend == true) {
+			// if (friend == true) {
 
 				// alerts
-				console.log("FRIEND ADDED: " + newFriend.name);
+				console.log("FRIEND ADDED: " + friend);
 				alert("Successfully added friend to database!");
 
 
@@ -223,7 +223,7 @@
 				$('#name').val('');
 				$('#photo').val('');
 				// need to add all the score boxes. How to reset dropdown values...?
-			};
+			// };
 
 			if (friend == false) {
 				alert("Sorry, something went wrong and this friend was not added to the database :(")
@@ -231,7 +231,7 @@
 
 		});
 
-		return false;
+		// return false;
 
 	});
 

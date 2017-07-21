@@ -1,4 +1,4 @@
-'use strict'
+
 
 // require packages
 const express = require('express');
@@ -20,16 +20,15 @@ require('./app/routing/htmlRoutes.js')(app);
 
 // Sets up the Express app to parse data //
 // Parse application
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: true} ));
 
 // Parse application / json
-// app.use(bodyParser.json());
-app.use(bodyParser.json( {type: "application/vnd.api+json"} ));
 app.use(bodyParser.text());
+app.use(bodyParser.json( {type: "application/vnd.api+json"} ));
 
 
 // App Listener:
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-
